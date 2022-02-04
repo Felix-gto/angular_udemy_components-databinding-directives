@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./server-element.component.css']
 })
 export class ServerElementComponent implements OnInit {
+
+  // define the element as an object: properties and types.   ->   @Input() and import Input to be able to use it in a parent component (app.component)
+  @Input('srvElement') element: {type: string, name: string, content: string};
 
   constructor() { }
 
