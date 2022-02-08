@@ -3,9 +3,10 @@
 
     <p>Add new Servers or blueprints!</p>
 
+
     <label>Server Name</label>
 
-    <!-- Using 2 way databinding (ngModel) -->
+    <!-- Using 2 way data binding (ngModel) -->
     <!-- <input type="text" class="form-control" [(ngModel)]="newServerName"> -->
 
     <!-- Using local reference -->
@@ -14,12 +15,21 @@
      class="form-control"
     #serverNameInput>
 
-    <!-- Using 2 way databinding (ngModel) -->
+
     <label>Server Content</label>
-    <input type="text" class="form-control" [(ngModel)]="newServerContent">
+    
+    <!-- Using 2 way data binding (ngModel) -->
+    <!-- <input type="text" class="form-control" [(ngModel)]="newServerContent"> -->
+
+    <!-- Using @ViewChild to get access to the Template & DOM -->
+    <input
+     type="text" 
+     class="form-control" 
+     #serverContentInput>
 
     <br />
 
+    <!-- Buttons: Add Server & Add Server Blueprint -->
     <button 
      class="btn btn-primary"
      (click)="onAddServer(serverNameInput)"
