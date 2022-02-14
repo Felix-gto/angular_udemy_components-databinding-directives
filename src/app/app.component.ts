@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+// Services - Section 9
+import { AccountsService } from './accounts.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   // Declare Server element object: create an Test server example
   serverElements = [{type: 'server', name: 'Test server', content: 'Just a test!'}];
@@ -43,5 +46,16 @@ export class AppComponent {
   evenNumbers = [2, 4];
   onlyOdd = false;
   value = 10;
+
+
+  /*********  Services - Section 7  **********/
+
+  accounts: {name: string, status: string}[] = [];
+
+  constructor(private accountsService: AccountsService) {}
+
+  ngOnInit() {
+    this.accounts = this.accountsService.accounts;   // JavaScript reference type, by setting it equal here we are getting access to the same the array as stored in the AccountsService
+  }
 
 }
